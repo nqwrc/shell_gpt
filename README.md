@@ -6,15 +6,21 @@ A command-line interface (CLI) productivity tool powered by OpenAI's Davinci mod
 </div>
 
 ## Description
-`text-davinci-003` is a powerful language model developed by OpenAI that can generate human-like text. It can be used by us developers, to generate code snippets, comments, documentation and more, helping us increase our productivity and efficiency while coding.
+shell-gpt: An interface to OpenAI's GPT-3 API
 
-Forget about cheat sheets and notes, with this tool you can get accurate answers right in your terminal, and you'll probably find yourself reducing your daily Google searches, saving you valuable time and effort.
+This module provides a simple interface for OpenAI's GPT-3 API using Typer
+as the command line interface. It supports different modes of output including
+shell commands and code, and allows users to specify the desired OpenAI model
+and length and other options of the output. Additionally, it supports executing
+shell commands directly from the interface.
+
+Access token is stored locally for easy use in future sessions.
 
 ## Installation
 ```shell
 pip install shell-gpt --user
 ```
-On first start you would need to generate and provide your API key, get one [here](https://beta.openai.com/account/api-keys).
+On first start you would need to generate and provide your access token, get one [here](https://chat.openai.com/api/auth/session).
 
 ## Usage
 `sgpt` has a variety of use cases, including simple queries, shell queries, and code queries.
@@ -110,10 +116,6 @@ This is, just some examples of what we can do using GPT-3 models, I'm sure you w
 │   prompt      [PROMPT]  The prompt to generate completions for.                                                                 │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Options ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --model                                  [davinci|curie|codex]      GPT-3 model name. [default: davinci]                        │
-│ --max-tokens                             INTEGER                    Strict length of output (words). [default: (dynamic)]       │
-│ --temperature                            FLOAT RANGE [0.0<=x<=1.0]  Randomness of generated output. [default: (dynamic)]        │
-│ --top-probability                        FLOAT RANGE [0.1<=x<=1.0]  Limits highest probable tokens. [default: (dynamic)]        │
 │ --shell            -s                                               Provide shell command as output.                            │
 │ --execute          -e                                               Will execute --shell command.                               │
 │ --code                 --no-code                                    Provide code as output. [default: no-code]                  │
